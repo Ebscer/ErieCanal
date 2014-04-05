@@ -1,0 +1,41 @@
+.dark-theme{
+	background:#262626;
+	color:#FFFFFF;
+}
+.about-title{
+	font-size:28px;
+	font-weight:bolder;
+	margin:15px 0px;
+}
+.about-page{
+	text-align:center;
+	font-size:17px;
+	margin:25px 0px;
+}
+.load-page{
+    display: table;
+    margin: 0 auto;
+	font-size:36px;
+}
+.about-link{
+	margin:15px 0px;
+}
+.ebscerItem{
+	text-align:center;
+	margin:10px 0px;
+	color:#000000;
+}
+.ebscerItem-title{
+	font-size:24px;
+	padding:0 0 4px 0;
+}
+.ebscerItem-small{
+	font-size:15px;
+}
+a{
+	text-decoration:none;
+	color:#43CEE6;
+}
+.ebscerLink{
+	color:#0000EE;
+}
