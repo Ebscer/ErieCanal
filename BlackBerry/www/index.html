@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Erie Canal</title>
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+</head>
+
+<body>
+  <html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Erie Canal</title>
+	<script src="lib/js/ionic.bundle.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1pg7uJAIrzarYtho0i6uYMYGl_B2Ut-w&sensor=true"></script>
+	<link href="lib/css/ionic.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div ng-controller="MainCtrl">
+      <ion-nav-view></ion-nav-view>
+    </div>
+
+    <script id="event-menu.html" type="text/ng-template">
+      <ion-side-menus>
+        <ion-pane ion-side-menu-content>
+          <ion-nav-bar type="bar-calm"
+                   back-button-type="button-icon"
+                   back-button-icon="ion-ios7-arrow-back"></ion-nav-bar>
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-pane>
+        <ion-side-menu side="left" width="180">
+          <header class="bar bar-header bar-dark">
+            <div class="title">Menu</div>
+          </header>
+          <ion-content has-header="true">
+            <ul class="list" menu-tap>
+              <a href="#/event/home" class="item">Canal</a>
+              <a href="#/event/map" class="item">Map</a>
+              <a href="#/event/options" class="item">Options</a>
+              <a href="#/event/about" class="item">About</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+      </ion-side-menus>
+    </script>
+	
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="'Erie Canal'" hide-back-button="true" left-buttons="leftButtons">
+        <ion-content has-header="true" padding="true" class="dark-theme">
+		  
+		  <div ng-show=loadScreen style="padding:50px;">
+			  <div class="load-page">
+				<i class="icon ion-loading-c"></i>
+			  </div>
+			  <div class="load-page" style="font-size:24px;padding:15px;">
+				Loading...
+			  </div>
+		  </div>
+		  
+		  <div class="list">
+			<div ng-repeat="item in allItems | orderBy:'mile':DataBase.sortOrder"
+					ng-click="item.expanded=!item.expanded;">
+				<div ng-show="(DataBase.filterString.indexOf(item.type)>=0)" class="ebscerItem" style="background-color:{{item.type == 'Marina' ? '#C0C0C0' : (item.type == 'Boat Launch' ? '#C0C0C0' : '#43CEE6')}};">
+					<div class="ebscerItem-small">{{item.type}}</div>
+					<div class="ebscerItem-title">{{item.name}}</div>
+					<div ng-show=item.expanded>
+						<div class="ebscerItem-small">Mile {{item.mile}}</div>
+						<div class="ebscerItem-small"><a ng-click="item.expanded=!item.expanded;" class="ebscerLink" href="tel:{{item.phone}}">{{item.phone}}</a></div>
+						<div class="ebscerItem-small"><a ng-click="item.expanded=!item.expanded;" class="ebscerLink" href="{{item.url}}" target="_blank">{{item.urlShow}}</a></div>
+					</div>
+				</div>
+			</div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>
+  <script src="js/index.js"></script>
+</body>
+</html>

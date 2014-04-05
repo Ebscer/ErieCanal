@@ -1,0 +1,36 @@
+<ion-view title="'Options'" left-buttons="leftButtons">
+	<ion-content has-header="true" padding="true" class="dark-theme">
+		<br>
+		<div align="center">
+			<div class="item item-divider">
+				Direction
+			</div>
+			<ion-radio ng-repeat="item in canalOption" ng-value="item.value" ng-model="DataBase.sortOrder" ng-Change="radioChange()">
+				{{item.text}}
+			</ion-radio>
+		</div>
+		<br>
+		<div align="center">
+			<div class="item item-divider">
+				Show Items
+			</div>
+			<ul class="list">
+				<ion-toggle ng-model="DataBase.showLift" ng-change="showLiftChange()">
+					Lift Bridges
+				</ion-toggle>
+				<ion-toggle ng-model="DataBase.showGuard" ng-change="showGuardChange()">
+					Guard Gates
+				</ion-toggle>
+				<ion-toggle ng-model="DataBase.showMarina" ng-change="showMarinaChange()">
+					Marinas
+				</ion-toggle>
+				<ion-toggle ng-model="DataBase.showLaunch" ng-change="showLaunchChange()">
+					Boat Launches
+				</ion-toggle>
+			</ul>
+		</div>
+		<br>
+		<button class="button button-block button-calm" ng-click="refreshData()">Reload Data</button>
+		<div style="text-align:center;">{{reloading}}</div>
+	</ion-content>
+</ion-view>

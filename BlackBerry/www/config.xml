@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ebscer.canal.erie" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Erie Canal</name>
+    <description>
+        An app for the Erie Canal
+    </description>
+    <author email="help@ebscer.com" href="http://ebscer.com/">
+        Ebscer
+    </author>
+	<icon src="icon-114.png" />
+    <content src="index.html" />
+    <access origin="http://www.canals.ny.gov" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+	<feature name="Geolocation" value="Geolocation" />
+	<rim:permissions>
+		<rim:permit>read_geolocation</rim:permit>
+	</rim:permissions>
+</widget>
